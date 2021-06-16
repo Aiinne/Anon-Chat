@@ -130,8 +130,7 @@ module.exports = handle = async (
 💌 ${prf}sendprofile - _${lang == 'id' ? 'mengirim kontak pribadi anda ke teman chat' : 'send your personal contacts to chat opponents'}_
 ♻️ ${prf}changelang - _${lang == 'id' ? 'mengganti bahasa [EN & ID]' : 'change language [EN & ID]'}_
 ⚠️ ${prf}bug - _${lang == 'id' ? 'mengirim laporan ke pemilik bot' : 'send a report to the bot owner'}_
-🔮 ${prf}owner - _${lang == 'id' ? 'kirim kontak pemilik bot' : 'send the bot owner contact'}_
-👑 ${prf}author - _${lang == 'id' ? 'kirim kontak pembuat bot' : 'send the bot creator contact'}_
+👑 ${prf}owner - _${lang == 'id' ? 'kirim kontak pemilik bot' : 'send the bot owner contact'}_
 ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcast ke semua kontak_` : `<your message> _Send broadcast to all contacts_`) : ''}
 
 ———————————————————————————
