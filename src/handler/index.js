@@ -1,21 +1,5 @@
 "use strict";
 
-const {
-    MessageType,
-    Presence,
-    MessageOptions,
-    Mimetype,
-    ChatModification,
-    WALocationMessage,
-    WA_MESSAGE_STUB_TYPES,
-    ReconnectMode,
-    ProxyAgent,
-    GroupSettingChange,
-    waChatKey,
-    mentionedJid,
-    processTime,
-    Browser
-} = require('@adiwajshing/baileys');
 var fs = require("fs");
 var request = require('request')
 var chalk = require('chalk')
@@ -65,9 +49,6 @@ function fetchJson = (url, options) => new Promise(async (resolve, reject) => {
         })
 })
 
-try {
-
-}
 
 let handle;
 
@@ -179,7 +160,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                case prf + 'donasi':
                     balas(from, `*Donasi*\n\nVia Pulsa :\n0895-3303-79186\n0896-5436-0447\n\n_${lang == 'id' ? 'Bantu kami seikhlasnya untuk selalu tetap aktif bot kami, Terima kasih' : 'Help us sincerely to always keep our bot active, Thank you'}`)
                     break
-
+               case prf + '':
                case prf + 'start':
                case prf + 'search':
                     if (!isMatched(sender).status) {
