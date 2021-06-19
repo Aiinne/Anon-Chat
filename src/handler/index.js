@@ -5,6 +5,8 @@ var fs = require("fs");
 var request = require('request')
 var chalk = require('chalk')
 var moment = require('moment')
+const fetch = require('node-fetch')
+const FileType = require('file-type')
 var { exec } = require('child_process')
 var util = require('util');
 var delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
