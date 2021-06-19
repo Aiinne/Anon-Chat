@@ -121,7 +121,7 @@ module.exports = handle = async (
           switch (cmd) {
                case prf + 'help':
                case prf + 'menu':
-                    balas(from, `${lang == 'id' ? `Halo ${pushname}👋, berikut perintah anonymous chat bot` : `Hi ${pushname}👋, following the anonymous chat bot command`}
+                    balas(from, `${lang == 'id' ? `Halo ${pushname} 👋, berikut perintah anonymous chat bot` : `Hi ${pushname} 👋, following the anonymous chat bot command`}
                     
 🗒️ ${prf}menu - _${lang == 'id' ? 'melihat perintah yang tersedia' : 'see the available commands'}_
 🔎 ${prf}search - _${lang == 'id' ? 'mencari teman bicara' : 'looking for someone to talk to'}_
@@ -132,12 +132,23 @@ module.exports = handle = async (
 ⚠️ ${prf}bug - _${lang == 'id' ? 'mengirim laporan ke pemilik bot' : 'send a report to the bot owner'}_
 👑 ${prf}owner - _${lang == 'id' ? 'kirim kontak pemilik bot' : 'send the bot owner contact'}_
 ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcast ke semua kontak_` : `<your message> _Send broadcast to all contacts_`) : ''}
+💰 ${prf}donasi - _${lang == 'id' ? 'donasi kalian untuk bot kami' : 'donation you all for bot us'}_
+
+🌐 FB : https://www.facebook.com/ainneboot
+🌐 IG : https://instagram.com/ainee_bot
+
+
 
 ———————————————————————————
 
 \`\`\`${lang == 'en' ? 'bahasa yang anda gunakan adalah bahasa inggris, ketik ' + prf + 'changelang untuk mengganti ke bahasa indonesia' : 'the language you use is Indonesian, type ' + prf + 'changelang to change to english'}\`\`\`
           `)
                     break
+               case prf + 'donasi':
+                    balas(from, `*Donasi*\n\nVia Pulsa :\n0895-3303-79186\n0896-5436-0447\n\n_${lang == 'id' ? 'Bantu kami seikhlasnya untuk selalu tetap aktif bot kami, Terima kasih' : 'Help us sincerely to always keep our bot active, Thank you'}`)
+
+                    break
+
                case prf + 'start':
                case prf + 'search':
                     if (!isMatched(sender).status) {
