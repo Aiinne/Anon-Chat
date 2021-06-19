@@ -1,6 +1,21 @@
 "use strict";
 
-
+const {
+    MessageType,
+    Presence,
+    MessageOptions,
+    Mimetype,
+    ChatModification,
+    WALocationMessage,
+    WA_MESSAGE_STUB_TYPES,
+    ReconnectMode,
+    ProxyAgent,
+    GroupSettingChange,
+    waChatKey,
+    mentionedJid,
+    processTime,
+    Browser
+} = require('@adiwajshing/baileys');
 var fs = require("fs");
 var request = require('request')
 var chalk = require('chalk')
@@ -49,6 +64,10 @@ function fetchJson = (url, options) => new Promise(async (resolve, reject) => {
             reject(err)
         })
 })
+
+try {
+
+}
 
 let handle;
 
