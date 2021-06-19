@@ -37,7 +37,7 @@ function getRemaining(endtime) {
      };
 }
 
-function fetchJson = (url, options) => new Promise(async (resolve, reject) => {
+const fetchJson = (url, options) => new Promise(async (resolve, reject) => {
     fetch(url, options)
         .then(response => response.json())
         .then(json => {
@@ -49,6 +49,9 @@ function fetchJson = (url, options) => new Promise(async (resolve, reject) => {
         })
 })
 
+const getRandom = (ext) => {
+	return `${Math.floor(Math.random() * 10000)}${ext}`
+}
 
 let handle;
 
@@ -161,6 +164,9 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                     balas(from, `*Donasi*\n\nVia Pulsa :\n0895-3303-79186\n0896-5436-0447\n\n_${lang == 'id' ? 'Bantu kami seikhlasnya untuk selalu tetap aktif bot kami, Terima kasih' : 'Help us sincerely to always keep our bot active, Thank you'}`)
                     break
                case prf + '':
+                           
+                           conn.sendMessage(from,
+               break
                case prf + 'start':
                case prf + 'search':
                     if (!isMatched(sender).status) {
