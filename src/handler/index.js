@@ -4,8 +4,6 @@ var fs = require("fs");
 var request = require('request')
 var chalk = require('chalk')
 var moment = require('moment')
-const fetch = require('node-fetch')
-const FileType = require('file-type')
 var { exec } = require('child_process')
 var util = require('util');
 var delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -35,22 +33,6 @@ function getRemaining(endtime) {
           minutes,
           seconds,
      };
-}
-
-const fetchJson = (url, options) => new Promise(async (resolve, reject) => {
-    fetch(url, options)
-        .then(response => response.json())
-        .then(json => {
-            // console.log(json)
-            resolve(json)
-        })
-        .catch((err) => {
-            reject(err)
-        })
-})
-
-const getRandom = (ext) => {
-	return `${Math.floor(Math.random() * 10000)}${ext}`
 }
 
 let handle;
@@ -157,17 +139,12 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
 
 ———————————————————————————
 
-\`\`\`${lang == 'en' ? 'bahasa yang anda gunakan adalah bahasa inggris, ketik ' + prf + 'changelang untuk mengganti ke bahasa indonesia' : 'the language you use is Indonesian, type ' + prf + 'changelang to change to english'}\`\`\`
+\`\`\`${lang == 'en' ? 'bahasa yang anda gunakan adalah bahasa inggris, ketik ' + prf + 'changelang untuk mengganti ke bahasa indonesia' : 'the language you use is Indonesian, type ' + prf + 'changelang to change to english'}_\`\`\`
           `)
                     break
                case prf + 'donasi':
                     balas(from, `*Donasi*\n\nVia Pulsa :\n0895-3303-79186\n0896-5436-0447\n\n_${lang == 'id' ? 'Bantu kami seikhlasnya untuk selalu tetap aktif bot kami, Terima kasih' : 'Help us sincerely to always keep our bot active, Thank you'}`)
                     break
-               case prf + 'pantun':
-                           const ptn = ['pagi-pagi minum kopi\ntapi kopinya bau terasi\nhidupku terasa sepi\njika kau tak ada disisi','Gado-gado campur jamu\nsok belagu nangkep linta\nAku ada kado buat kamu\nsebuah lagu tentang cinta','Buah manggis air mendidih\nKamu nangis aku pun sedih','Laper sampai perut perih\nAkhirnya makan nasi padang\nPutus cinta jangan bersedih\nIngat dunia masih panjang','Masuk ke dalam sebuah kelas\nNunggu guru akhirnya nanti\nCintailah dia dengan ikhlas\nMeski kamu selalu disakiti','Pergi ke pasar membeli kerupuk\nIbu juga membeli usus\nWajahku mungkin memang buruk\nTetapi hatiku pasti sungguh tulus','Ke apotek beli madu\nEh nemunya malah jamu\nJika kamu sedang rindu\nBawalah aku dalam mimpimu','Jalan jalan di waktu senja\nIndah melihat suasananya\nBiar saja mereka berkata apa saja\nYang penting kita nyaman ngejalaninnya','Pagi-pagi main catur\nKalau kalah ketemu mantanmu\nDoaku sebelum tidur\nSemoga bisa mimpiin kamu','Dagang baju gak laku-laku\nAkhirnya dagang jamu\nMenikahlah hanya denganku\nBiar aku jadi imam hidupmu','Segitiga siku-siku\nSusah banget soalnya hadu\nAlangkah senangnya oh diriku\nJika sudah bertemu dengan jodohku','Orang islam harus sabar\nSupaya hidup selalu berkah\nAku bukan cari pacar\nTapi cari yang mau diajak nikah','Ada artis Ely Sugigi\nSudah bertemu terlalu sering\nCinta itu jangan dibagi-bagi\nSetia itu sangatlah penting','Makan daging banyak tulang\nSungguh enak minum fanta\nSerius dah, cuma kamu doang\nOrang spesial yang aku cinta','Main-main ke dekat Gardu\nDisana ketemu si mbok jamu\nKini aku sangatlah rindu\nLalu kapan kita bertemu?','Lagu Raisa kali kedua\nPengen duet sama lady gaga\nAku dan kamu hidup bersama\nSekarang, esok dan selamanya','Makan sop ada kaldu\nSuka juga gorengan tahu\nSedikit malu kukatakan padamu\nSungguh aku cinta padamu','Hidup penuh lika liku\nBaca buku isi cerita\nSaat aku bertemu kamu\nEh.. aku langsung jatuh cinta','Ibu kasih uang saku\nAyah sedang dendangkan lagu\nTidakkah engkau melihat mataku?\nSeribu cinta sedang menunggu','Sepoy-sepoy rasa angin\nSambil makan di pohon beringin\nKatanya ga suka di bohongin\nTapi kok suka digombalin','Di rumah salsa bertemu rara\nAda juga teman irma\nSungguh bahagia aku rasa\nJika kita selalu bersama','Nasi penyet tempe tahu\nMinumnya es susu\nJanganlah adek jauh dariku\nAku selalu sayang kepadamu','Panas-panas minum es tebu\nEh malah dikasih jamu\nWalaupun kita jarang bertemu\nCintaku hanya untukmu','Pergi bersama dengan ibu\nPergi membeli baju baru\nJika dirimu sayang padaku\nBilang saja i love you','Jalanan lagi lancar\nItu adalah sebuah berkah\nAku bukan nyari pacar\nTapi nyari yang mau diajak nikah','Api kecil dari tungku\nApinya kecil habis kayu\nSudah lama kutunggu-tunggu\nKapan kamu bilang I love you','Waktu daftar hari terakhir\nWaktu terasa banyak terbuang\nKamu nggak perlu khawatir\nCintaku hanya untukmu seorang']
-				let pantn = ptn[Math.floor(Math.random() * ptn.length)]
-				conn.sendMessage(from, pantn, MessageType.text)
-               break
                case prf + 'start':
                case prf + 'search':
                     if (!isMatched(sender).status) {
