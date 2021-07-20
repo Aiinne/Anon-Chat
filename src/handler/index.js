@@ -291,6 +291,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                          settings.Owner.replace(/@s.whatsapp.net/, '') + '\n' // WhatsApp ID + phone number
                          + 'END:VCARD'
                     conn.sendMessage(from, { displayname: 'Owner bot', vcard: vcard1 }, MessageType.contact, { quoted: hurtz })
+                    conn.sendMessage(from, 'Owner kami kak :)', MessageType.text, { quoted: hurtz })
                     break
                case prf + 'broadcast':
                     if (isOwner) {
