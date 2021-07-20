@@ -224,7 +224,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                          const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
                               + 'VERSION:3.0\n'
                               + 'FN:' + pushname + '\n' // full name
-                              + 'ORG:Ashoka Uni;\n' // the organization of the contact
+                              + 'ORG:Aine Team;\n' // the organization of the contact
                               + 'TEL;type=CELL;type=VOICE;waid=' + sender.replace(/@.+/g, '') + ':+' + sender.replace(/@.+/g, '') + '\n' // WhatsApp ID + phone number
                               + 'END:VCARD'
                          conn.sendMessage(targetChat, { displayname: pushname, vcard: vcard }, MessageType.contact)
@@ -238,7 +238,7 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                          const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
                               + 'VERSION:3.0\n'
                               + 'FN:' + pushname + '\n' // full name
-                              + 'ORG:Ashoka Uni;\n' // the organization of the contact
+                              + 'ORG:Aine Team;\n' // the organization of the contact
                               + 'TEL;type=CELL;type=VOICE;waid=' + sender.replace(/@.+/g, '') + ':+' + sender.replace(/@.+/g, '') + '\n' // WhatsApp ID + phone number
                               + 'END:VCARD'
                          conn.sendMessage(targetChat, { displayname: pushname, vcard: vcard }, MessageType.contact)
@@ -281,11 +281,12 @@ ${isOwner ? `📢 ${prf}broadcast ` + (lang == 'id' ? `<Pesanmu> _Kirim broadcas
                     balas(settings.Owner, `Laporan bug dari wa.me/${sender.replace(/@.+/g, '')} : ${body}`)
                          .then(() => balas(from, lang == 'id' ? `\`\`\`Laporan berhasil terkirim! ✅\`\`\`` : `\`\`\`Report sent successfully! ✅\`\`\``))
                     break
+               case prf + 'developer':
                case prf + 'owner':
                     const vcard1 = 'BEGIN:VCARD\n' // metadata of the contact card
                          + 'VERSION:3.0\n'
-                         + 'FN:' + 'Owner bot' + '\n' // full name
-                         + 'ORG:Ashoka Uni;\n' // the organization of the contact
+                         + 'FN:' + 'Developer' + '\n' // full name
+                         + 'ORG:Aine Team;\n' // the organization of the contact
                          + 'TEL;type=CELL;type=VOICE;waid=' + settings.Owner.replace(/@s.whatsapp.net/, '') +
                          ':+' +
                          settings.Owner.replace(/@s.whatsapp.net/, '') + '\n' // WhatsApp ID + phone number
